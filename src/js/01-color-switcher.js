@@ -10,7 +10,7 @@ function getRandomHexColor() {
 
 const startColorSetting = () => {
     startBtnEl.disabled = true;
-    timerId = setInterval(() => {
+    const timerId = setInterval(() => {
         bodyEl.style.backgroundColor = getRandomHexColor()
     }, 1000);
 };

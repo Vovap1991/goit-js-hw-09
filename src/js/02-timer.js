@@ -59,9 +59,14 @@ function addLeadingZero(value) {
 }
 
 function timerCounting() {
-  countingIntervalId = setInterval(() => {
+  const countingIntervalId = setInterval(() => {
     const currentTime = Date.now();
     const remainingTime = selectedDate - currentTime;
+    if (remainingTime <= 0) {
+      clearInterval(countingIntervalId);
+      Notiflix.Report.success('Time is over');
+      return;
+    }
     startBtnEl.disabled = true;
 
     const { days, hours, minutes, seconds } = convertMs(remainingTime);
